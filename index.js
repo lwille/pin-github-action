@@ -4,6 +4,10 @@ const extractActions = require("./extractActions");
 const replaceActions = require("./replaceActions");
 const findRefOnGithub = require("./findRefOnGithub");
 
+YAML.defaultOptions.indentSeq = false;
+YAML.scalarOptions.str.fold.lineWidth = 0;
+YAML.scalarOptions.null.nullStr = "";
+
 module.exports = async function(input) {
   // Parse the workflow file
   let workflow = YAML.parseDocument(input);
