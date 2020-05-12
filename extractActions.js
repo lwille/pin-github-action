@@ -24,7 +24,7 @@ module.exports = function(input) {
     for (let step of steps) {
       const uses = step.items.filter(n => n.key == "uses");
       if (!uses.length) {
-        throw new Error("No Actions detected");
+        continue;
       }
       for (let use of uses) {
         const line = use.value.value.toString();
